@@ -172,6 +172,7 @@ config.init = function(env) {
   config.platform = (env.platform && env.platform !== 'all') ? env.platform.split(',') : undefined;
   config.package_version   = require("../../package.json").version;
   config.errorNotification = env.errorNotification !== undefined ? env.errorNotification : config.errorNotification || false;
+  config.esversion =  env.esversion || config.esversion || "5";
 };
 
 config.write = function(env) {

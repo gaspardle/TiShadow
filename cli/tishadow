@@ -81,6 +81,7 @@ program.command('run')
   .option('-D, --include-dot-files', 'includes dot files in the bundle (defaults to false)')
   .option('-T, --target <app_name>', 'target TiShadow app (defaults to name on tiapp.xml or moduleid on manifest)')
   .option('-c, --ticommonjs', 'support for applications using the ti-commonjs library')
+  .option('-e, --esversion <version>', 'ECMAScript version')
   .action(compiler);
 
 program.command('deploy')
@@ -90,6 +91,7 @@ program.command('deploy')
   .option('-r, --room <room>', 'server room')
   .option('-s, --skip-alloy-compile', 'skip automatic alloy compilation')
   .option('-D, --include-dot-files', 'includes dot files in the bundle (defaults to false)')
+  .option('-e, --esversion <version>', 'ECMAScript version')
   .action(compiler);
 
 program.command('bundle')
@@ -97,6 +99,7 @@ program.command('bundle')
   .option('-s, --skip-alloy-compile', 'skip automatic alloy compilation')
   .option('-D, --include-dot-files', 'includes dot files in the bundle (defaults to false)')
   .option('-j, --jshint', 'analyse code with JSHint')
+  .option('-e, --esversion <version>', 'ECMAScript version')
   .action(compiler);
 
 program.command('spec')
@@ -227,7 +230,7 @@ if (config.isWatching) {
   config.buildPaths({},function() {
     var paths = [config.isAlloy ? "app" :"Resources"];
     if (
-      fs.existsSync(path.join(config.base, 'i18n')) && 
+      fs.existsSync(path.join(config.base, 'i18n')) &&
       !fs.existsSync(path.join(config.base, 'i18n', 'alloy_generated'))
       ){
       paths.push('i18n');

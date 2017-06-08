@@ -24,6 +24,7 @@
     "socket.io": "^1.7.3",
     "socket.io-client": "^1.7.3",
     "tiapp": "0.0.3",
+    "uglify-es": "^3.0.15",
     "uglify-js": "^2.7.5",
     "underscore": "^1.8.3",
     "update-notifier": "^0.1.10",
